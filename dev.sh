@@ -1,9 +1,10 @@
 #!/bin/bash
 SRCDIR="./src/"
 OUTDIR="./out/"
-BUILDSITESCRIPT="./build-scripts/build-site.sh"
-SRCHASHSUMSCRIPT="./build-scripts/hashdir.sh"
+BUILDSITESCRIPT="./build-site.sh"
+SRCHASHSUMSCRIPT="./hashdir.sh"
 SRCHASHSUM=$(sh $SRCHASHSUMSCRIPT $SRCDIR)
+SLEEPTIME="0.5"
 
 sh $BUILDSITESCRIPT
 
@@ -15,9 +16,9 @@ while true; do
     PRESRCHASHSUM=$SRCHASHSUM
     SRCHASHSUM=$(sh $SRCHASHSUMSCRIPT $SRCDIR)
     if [ "$PRESRCHASHSUM" = "$SRCHASHSUM" ]; then
-        sleep 0.5
+        sleep $SLEEPTIME
     else
         echo "\e[34mDirectory fingerptint changed...\e[39m \e[90m($SRCHASHSUM)\e[39m"
-        sh "./build-site.sh"
+        sh $BUILDSITESCRIPT
     fi
 done

@@ -2,6 +2,7 @@
 SRCDIR="src"
 OUTDIR="out"
 PAGES=$SRCDIR"/pages/*"
+
 rm -rf $OUTDIR/*
 mkdir -p $OUTDIR
 
