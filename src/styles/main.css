@@ -46,3 +46,8 @@ a:link, a:visited {
 a:hover, a:active {
     color: lightskyblue;
 }
+
+iframe {
+    width: 75vw;
+    height: 30vw;
+}
