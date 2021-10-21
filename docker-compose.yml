@@ -1,6 +1,6 @@
 version: "3.0"
 services:
-  minecraft-web:
+  web:
     build: .
     ports:
       - "127.0.0.1:62002:80"
